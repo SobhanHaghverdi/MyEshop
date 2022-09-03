@@ -1,0 +1,37 @@
+﻿@page
+@model MyEshop.Pages.Admin.Groups.EditModel
+
+@{
+    ViewData["Title"] = "ویرایش گروه";
+}
+
+<h1 class="text-center mt-4">ویرایش گروه</h1>
+<a asp-page="/Admin/Groups/Index">بازگشت</a>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" class="text-center">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Category.Id" />
+            <div class="input-icons">
+                <label asp-for="Category.Name" class="control-label"></label>
+                <input asp-for="Category.Name" class="small-input form-control" />
+                <span asp-validation-for="Category.Name"></span>
+            </div>
+            <div class="input-icons">
+                <label asp-for="Category.Description" class="control-label"></label>
+                <textarea asp-for="Category.Description" class="small-input form-control" style="resize:none;height:200px;"></textarea>
+                <span asp-validation-for="Category.Description"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ویرایش" class="button-33" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

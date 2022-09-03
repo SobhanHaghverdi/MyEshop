@@ -1,0 +1,157 @@
+﻿body {
+    font-size: 16px;
+    font-family: Sahel,sans-serif;
+}
+
+header {
+    display: block;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: #1E90FF;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+.small-input {
+    width: 70%;
+    padding-right: 30px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.input-icons {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+    .input-icons svg {
+        position: absolute;
+        margin-right: 100px;
+        margin-top: 7px;
+    }
+
+    .input-icons label {
+        padding-right: 90px;
+    }
+
+table {
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #999;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.field-validation-error {
+    padding-right: 94px;
+    color: #fa6060;
+}
+
+li a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+a:hover, .card-title:hover {
+    text-decoration: none;
+    color: #1E90FF;
+}
+
+li::marker {
+    color: #1E90FF;
+    margin-left: 100px;
+    top: 10px;
+}
+
+a, a.btn, input.btn {
+    border-radius: 2em;
+}
+
+.card, .card.img, .jumbotron, .product-detail-img, .description-box {
+    border-radius: 1em;
+}
+
+.card-title {
+    color: initial;
+}
+
+.price, .sub-img-text, .product-detail-price {
+    font-size: 18px;
+}
+
+.index-img {
+    max-width: 100%;
+}
+
+.courses-list-title {
+    margin-top: 115px;
+}
+
+.product-description {
+    width: 95%;
+}
+
+.list-group, .empty-cart-warning, .cart {
+    margin-top: 106px;
+}
+
+.success-payment-box, .success-register-box {
+    margin-top: 35px;
+}
+
+.aboutUs-page-forming, .cart-page-forming {
+    padding-right: 130px;
+}
+
+.dropdown-ul {
+    width: 180px;
+}
+
+.dropdown-li-style {
+    list-style-type: disc;
+}
+
+.footer-forming {
+    padding-right: 150px;
+}
+
+.categories-ul-style {
+    width: 200px;
+}
+
+.about-Us-Card {
+    max-width: 20rem;
+}
+
+.about-Us-text {
+    margin-top: 30px;
+}
+
+.profile-info-box {
+    margin: 0 auto;
+    border-radius: 1em;
+}
+
+.profile-info-label {
+    padding-right: 125px;
+}

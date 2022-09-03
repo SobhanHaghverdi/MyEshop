@@ -1,0 +1,36 @@
+﻿@model IEnumerable<OrderDetail>
+@{
+    ViewData["Title"] = "نتیجه پرداخت";
+}
+<div class="pl-5">
+    <h1 class="text-success text-center mt-4">پرداخت با موفقیت انجام شد</h1>
+    <div class="success-payment-box alert alert-success text-center text-justify">
+
+        <p>
+            کاربر گرامی @User.Identity.Name از خرید شما متشکریم.
+        </p>
+        <p>
+            کد رهگیری شما :<a href="#">@ViewBag.code</a>
+        </p>
+    </div>
+    <table class="table text-center mt-4">
+        <thead>
+            <tr>
+                <th class="text-center">نام محصول</th>
+                <th class="text-center">قیمت</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Product.Name</td>
+                    <td> @String.Format("{0:n0}", item.Product.Item.Price) تومان</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<p class="text-center mt-5 pr-3">
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Index">بازگشت به صفحه اصلی</a>
+</p>

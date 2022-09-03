@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap-rtl.css" rel="stylesheet" />
+    <link href="https://cdn.rawgit.com/rastikerdar/sahel-font/v1.0.0-alpha23/dist/font-face.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/admin.css" rel="stylesheet" />
+
+</head>
+<body class="rtl">
+    <header class="bg-primary text-white text-center">
+        <a href="#">مدیر</a>
+    </header>
+    <div class="row">
+        <div class="col-md-2">
+            <nav>
+                <ul>
+                    <li>
+                        <a class="nav-item" asp-controller="Home">
+                            خانه
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-item" asp-page="/Admin/Index">
+                            پنل ادمین
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-item" asp-page="/Admin/ManageUsers/Index">
+                            پنل کاربران
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-item" asp-page="/Admin/Groups/Index">
+                            گروه ها
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-8">
+            @RenderBody()
+        </div>
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

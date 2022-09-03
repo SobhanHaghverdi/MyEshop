@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "فروشگاه من";
+}
+
+<div class="text-center pr-4">
+    <h1 class="display-4 mt-4">به فروشگاه خوش آمدید</h1>
+    <hr class="mt-4 w-75"/>
+    <img class="index-img" height="400" src="~/wepik.png" />
+    <p class="sub-img-text">مرجع جدید ترین و بروز ترین دوره های آموزشی از زبان های مختلف برنامه نویسی</p>
+
+    <h1 class="courses-list-title">لیست دوره ها</h1>
+    <hr />
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <partial name="_BoxProduct" model="@item" />
+        }
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@page
+@model MyEshop.Pages.Admin.Groups.DeleteModel
+
+@{
+    ViewData["Title"] = "حذف گروه";
+}
+
+<h1 class="text-center mt-4">حذف گروه</h1>
+<hr class="mt-4" />
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" class="text-center">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="input-icons">
+                <label asp-for="Category.Name" class="control-label"></label>
+                <input asp-for="Category.Name" class="small-input form-control mb-2 text-center" readonly />
+            </div>
+
+            <div class="input-icons">
+                <label asp-for="Category.Description" class="control-label"></label>
+                <textarea asp-for="Category.Description" class="small-input form-control mb-2 text-center" readonly style="resize:none;height:200px;"></textarea>
+            </div>
+
+            <div class="group-delete-alert alert alert-warning text-center">
+                <p>آیا حذف گروه اطمینان دارید ؟</p>
+            </div>
+
+            <div class="mt-4">
+                <input type="hidden" asp-for="Category.Id" />
+                <button type="submit" class="group-delete-btn btn btn-danger">
+                    حذف
+                </button>
+                <a class="ml-4" asp-page="./Index">بازگشت</a>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,43 @@
+﻿@page
+@model MyEshop.Pages.Admin.Groups.IndexModel
+
+@{
+    ViewData["Title"] = "لیست گروه ها";
+}
+
+<h1 class="text-center mt-4">لیست گروه ها</h1>
+
+<table class="table info-form">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Category[0].Name)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Category[0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Category)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">ویرایش</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">جزئیات</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">حذف</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p class="text-center mt-4">
+    <a class="button-33" asp-page="Create">افزودن گروه جدید</a>
+</p>

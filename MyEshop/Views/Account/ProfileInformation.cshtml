@@ -1,0 +1,24 @@
+﻿@model ProfileInformationViewModel
+@using MyEshop.Convertors;
+@{
+    ViewData["Title"] = "حساب کاربری";
+}
+<h1 class="text-center mt-4">حساب کاربری</h1>
+<hr class="mt-4 w-75" />
+<section class="section-style">
+    <div class="col">
+        <div class="profile-info-box form-group shadow-sm w-75 mb-4">
+            <label asp-for="FirstName" class="profile-info-label control-label mt-2 pt-2 pl-5">نام : @Model.FirstName</label>
+        </div>
+        <div class="profile-info-box form-group shadow-sm w-75 mb-4">
+            <label asp-for="LastName" class="profile-info-label control-label mt-2 pt-2 pl-5">نام خانوادگی : @Model.LastName</label>
+        </div>
+        <div class="profile-info-box form-group shadow-sm w-75 mb-4">
+            <label asp-for="Email" class="profile-info-label control-label mt-2 pt-2 pl-5">ایمیل : @Model.Email</label>
+        </div>
+        <div class="profile-info-box form-group shadow-sm w-75 mb-4">
+            <label asp-for="RegisterDate" class="profile-info-label control-label mt-2 pt-2 pl-5">تاریخ ثبت نام : @Model.RegisterDate.ToShamsi()</label>
+        </div>
+    </div>
+</section>
+

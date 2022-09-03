@@ -1,0 +1,62 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "سبد خرید";
+}
+@if (Model != null)
+{
+    <div class="pl-4">
+        <table class="cart table table-striped text-center">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th class="text-center">نام کالا</th>
+                    <th class="text-center">تعداد</th>
+                    <th class="text-center">قیمت</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderDetails)
+                {
+                    <tr>
+                        <td>@item.Product.Name</td>
+                        <td>
+                            <a asp-action="AddProductCount" asp-route-detailId="@item.DetailId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                </svg>
+                            </a>
+                            @item.Count
+                            @if (item.Count <= 1)
+                            {
+                            }
+
+                            else
+                            {
+                                <a asp-action="RemoveProductCount" asp-route-detailId="@item.DetailId">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                                    </svg>
+                                </a>
+                            }
+                        </td>
+                        <td>@String.Format("{0:n0}", (item.Count * item.Price)) تومان</td>
+                        <td>
+                            <a asp-action="RemoveFromCart" asp-route-detailId="@item.DetailId">حذف</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <h5 class="text-center text-success pr-3 mt-5">جمع کل : @String.Format("{0:n0}", Model.OrderDetails.Sum(s => s.Count * s.Price)) تومان</h5>
+    <p class="text-center mt-5 pr-4">
+        <a class="btn btn-success" asp-controller="Product" asp-action="Payment">پرداخت</a>
+    </p>
+}
+else
+{
+    <div class="cart-page-forming">
+        <div class="w-75 empty-cart-warning alert alert-danger text-center">فاکتوری یافت نشد</div>
+    </div>
+}

@@ -1,0 +1,35 @@
+﻿@model Product
+<div class="col-4">
+    <div class="card mb-4">
+        <a asp-action="Detail"
+           asp-controller="Product"
+           asp-route-id="@Model.Id">
+            <img src="/images/@(Model.Id).jpg" height="160" width="160" loading="lazy" alt="@Model.Name" class="card-img-top img-thumbnail" />
+        </a>
+        <div class="card-body text-center">
+            <a asp-action="Detail"
+               asp-controller="Product"
+               asp-route-id="@Model.Id">
+                <h5 class="card-title">@Model.Name</h5>
+            </a>
+            <h5 class="text-primary mt-3">
+                @String.Format("{0:n0}", Model.Item.Price)
+                <span class="price">تومان</span>
+            </h5>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="btn btn-primary mt-2"
+               asp-action="AddToCart"
+               asp-controller="Product"
+               asp-route-itemId="@Model.Id"> افزودن به سبد خرید</a>
+            }
+            else
+            {
+                <a class="btn btn-primary mt-2"
+               asp-action="Login"
+               asp-controller="Account"
+               asp-route-itemId="@Model.Id"> افزودن به سبد خرید</a>
+            }
+        </div>
+    </div>
+</div>

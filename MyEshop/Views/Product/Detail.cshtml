@@ -1,0 +1,48 @@
+﻿@model DetailsViewModel
+@{
+    ViewData["Title"] = Model.Product.Name;
+}
+
+<div class="col-md-11 pl-5">
+    <h1 class="display-6 mt-4 text-center">@Model.Product.Name</h1>
+    <hr class="mt-4" />
+    <img src="@($"/images/{Model.Product.Id}.jpg")"
+         alt="@Model.Product.Name"
+         class="product-detail-img img-thumbnail"
+         loading="lazy" />
+
+    <div class="row text-center mt-2 pl-2">
+        <div class="bs-component">
+            <ol class="breadcrumb bg-white">
+                @foreach (var item in Model.Categories)
+                {
+                    <li class="breadcrumb-item"><a href="#">خانه</a></li>
+                    <li class="breadcrumb-item"><a href="#">@item.Name</a></li>
+                }
+                <li class="breadcrumb-item"><a href="#">@Model.Product.Name</a></li>
+            </ol>
+        </div>
+    </div>
+    <div class="description-box text-justify shadow-sm mt-2">
+        <h5 class="text-success pl-5 pt-3">توضیحات دوره</h5>
+        <p class="product-description py-4 pl-5">@Model.Product.Description</p>
+    </div>
+
+    <p class="product-detail-price text-primary text-center mt-4">قیمت : @String.Format("{0:n0}", Model.Product.Item.Price) تومان</p>
+    <div class="text-center">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a class="mt-3 btn btn-primary"
+           asp-action="AddToCart"
+           asp-route-itemId="@Model.Product.ItemId">افزودن به سبد خرید</a>
+        }
+        else
+        {
+            <a class="mt-3 btn btn-primary"
+           asp-controller="Account"
+           asp-action="Login"
+           asp-route-itemId="@Model.Product.ItemId">افزودن به سبد خرید</a>
+        }
+    </div>
+</div>
+
